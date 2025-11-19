@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'New York';
+  src: url('Font /NewYork PERSONAL USE.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+html{
+  font-family: 'New York', Georgia, 'Times New Roman', Times, serif;
+
+ }
