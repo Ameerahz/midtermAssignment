@@ -8,3 +8,195 @@ html{
   font-family: 'New York', Georgia, 'Times New Roman', Times, serif;
 
  }
+ body {
+font-weight: 300;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #EAEAFA;           /* Body text color */
+  background-color: #041121; /* Page background */
+}
+
+header {
+  width: 100%;
+  padding: 20px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #0B2647; /* Navigation bar */
+  backdrop-filter: blur(6px);
+  z-index: 100;
+}
+
+nav a {
+  text-decoration: none;
+  color: #FFFFFF; /* Nav link color */
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+============================= */
+
+
+header {
+width: 100%;
+padding: 20px 40px;
+position: fixed;
+top: 0;
+left: 0;
+background-color: #0B2647;
+backdrop-filter: blur(6px);
+z-index: 100;
+}
+
+
+nav {
+display: flex;
+justify-content: space-around; /* Added space between links */
+gap: 30px;
+}
+
+
+nav a {
+text-decoration: none;
+color: #FFFFFF;
+font-size: 16px;
+font-weight: 500;
+}
+
+
+nav a:hover {
+color: #6e6e6e;
+}
+
+
+/* =============================
+HERO SECTION
+============================= */
+
+
+#hero {
+width: 100%;
+height: 100vh;
+background-image: url('../images/hero.jpg'); /* PLACE YOUR HERO IMAGE HERE */
+background-size: cover;
+background-position: center;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+position: relative;
+}
+
+
+#hero::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.35);
+}
+
+
+.hero-content {
+position: relative;
+z-index: 2;
+color: white;
+}
+
+
+..hero-content h1 {
+font-size: 70px;
+letter-spacing: 2px;
+margin-bottom: 10px;
+color: #FFFFFF;
+}
+
+
+.hero-content p {
+font-size: 20px;
+font-weight: 300;
+}
+.hero-content h1 {
+  font-size: 70px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #FFFFFF;
+  font-family: 'New York', serif; /* SamZ Marble title font */
+}
+
+/* =============================
+SHOP BY CATEGORY
+============================= */
+
+
+#categories {
+padding: 80px 40px;
+text-align: center;
+}
+
+
+#categories h2 {
+font-size: 36px;
+margin-bottom: 50px;
+}
+
+
+.category-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 40px;
+max-width: 1200px;
+margin: auto;
+}
+
+
+.category img {
+width: 100%;
+height: 300px;
+object-fit: cover;
+border-radius: 10px;
+}
+
+
+.category h3 {
+margin-top: 15px;
+font-size: 22px;
+color: #FFFFFF;
+}
+
+
+.btn {
+display: inline-block;
+margin-top: 10px;
+padding: 10px 20px;
+background-color: #A8943D;
+color: white;
+text-decoration: none;
+border-radius: 5px;
+font-size: 15px;
+transition: 0.3s;
+}
+
+
+.btn:hover {
+background-color:#041121;
+}
+
+
+/* =============================
+FOOTER
+============================= */
+
+
+footer {
+text-align: center;
+padding: 30px;
+background-color: #f5f5f5;
+margin-top: 50px;
+}
