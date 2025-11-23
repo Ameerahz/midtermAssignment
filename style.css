@@ -190,7 +190,7 @@ background-color:#041121;
 
 
 /* =============================
-FOOTER
+FOOTER 
 ============================= */
 
 
@@ -258,4 +258,44 @@ best - sellers
 
 .quick-view-btn:hover {
   opacity: 0.85;
+}
+
+/* ABOUT SECTION */
+.about-section {
+    padding: 60px 20px;
+    background: ##041121;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-box {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px #041121 a(0,0,0,0.1);
+}
+
+.about-box h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.about-box p {
+    font-size: 16px;
+    line-height: 1.7;
 }
