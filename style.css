@@ -37,8 +37,8 @@ nav a {
   font-weight: 500;
 }
 
-
-============================= */
+/* 
+=============================  */
 
 
 header {
@@ -110,7 +110,7 @@ color: white;
 }
 
 
-..hero-content h1 {
+.hero-content h1 {
 font-size: 70px;
 letter-spacing: 2px;
 margin-bottom: 10px;
@@ -205,97 +205,113 @@ margin-top: 50px;
 best - sellers
 ============================= */
 #best-sellers {
-  padding: 50px 20px;
-  background-color: #041121;
+    padding: 50px 20px;
+    background-color: #041121; /* section background */
 }
 
-.section-title {
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 30px;
-  font-family: 'New York', serif;
+#best-sellers h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #FFFFFF; /* white title */
+    margin-bottom: 30px;
+    font-family: "New York", serif;
 }
 
-/* Grid of products */
+/* Product grid */
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 per row */
+    gap: 25px;
 }
 
 /* Each product card */
 .product-card {
-  background: #0B2647;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
+    background: #0B2647;       /* matches navbar */
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
+/* === SAME SIZE IMAGES === */
 .product-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+    width: 100%;
+    height: 250px;       /* change height if you want */
+    object-fit: cover;   /* keeps images clean and cropped */
+    border-radius: 10px;
 }
 
-.price {
-  color: #EAEAFA;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-family: Montserrat, sans-serif;
+/* Price text */
+.product-price {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #EAEAFA;
 }
 
-/* Quick View button */
-.quick-view-btn {
-  background-color: #A8943D;
-  color: #FFFFFF;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: Montserrat, sans-serif;
+/* Quick View Button */
+.product-card button {
+    background-color: #A8943D;   /* gold button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.quick-view-btn:hover {
-  opacity: 0.85;
+.product-card button:hover {
+    opacity: 0.8;
 }
+
 
 /* ABOUT SECTION */
-.about-section {
-    padding: 60px 20px;
-    background: ##041121;
+/* ===== ABOUT PAGE ===== */
+#about-page {
+    background-color: #041121; /* Same theme */
+    padding: 50px 20px;
+    min-height: 100vh;
+}
+
+/* Title styling */
+#about-page h1 {
     text-align: center;
+    font-size: 40px;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+    font-family: "New York", serif;
 }
 
-.about-section h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.about-content {
+/* Grid container — boxes stacked vertically */
+.about-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* one column only */
     gap: 30px;
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.about-box {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px #041121 a(0,0,0,0.1);
+/* Box/Card Styling */
+.about-card {
+    background-color: #0B2647; /* Dark blue card */
+    padding: 30px;
+    border-radius: 15px;
+    color: #FFFFFF;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.3);
 }
 
-.about-box h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    font-weight: 600;
+/* Box titles */
+.about-card h2 {
+    color: #A8943D; /* Gold */
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-family: "New York", serif;
 }
 
-.about-box p {
-    font-size: 16px;
-    line-height: 1.7;
+/* Paragraph text */
+.about-card p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #EAEAFA;
+    font-family: "Montserrat", sans-serif;
 }

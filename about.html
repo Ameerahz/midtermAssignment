@@ -1,26 +1,105 @@
 <link rel="stylesheet" href="style.css"> 
 
-<section id="about" class="about-section">
-    <h2>About Samz Marble</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Test - SamZ Marble</title>
 
-    <div class="about-content">
-        <div class="about-box">
-            <h3>Vision Statement</h3>
-            <p>
-                To become the leading creator of refined marble accessories that redefine elegance in luxury spaces,
-                blending timeless craftsmanship with modern design to elevate every environment.
-            </p>
-        </div>
+  <!-- Inline CSS for testing (no external file needed) -->
+  <style>
+    :root{
+      --bg:#041121;
+      --card:#0B2647;
+      --gold:#A8943D;
+      --text:#EAEAFA;
+      --white:#FFFFFF;
+    }
 
-        <div class="about-box">
-            <h3>Mission Statement</h3>
-            <p>
-                At Samz Marble, our mission is to craft premium marble accessories with meticulous attention to detail,
-                using the finest materials to deliver sophistication, durability, and style.
-                We aim to inspire luxury living by creating statement pieces that enhance interiors,
-                reflect individuality, and stand the test of time.
-            </p>
-        </div>
+    body{
+      margin:0;
+      font-family: "Montserrat", sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    /* About styles (stacked two boxes) */
+    #about-page{
+      padding:50px 20px;
+      min-height:100vh;
+    }
+
+    #about-page h1{
+      text-align:center;
+      font-family:"New York", serif;
+      font-size:40px;
+      color:var(--white);
+      margin-bottom:30px;
+    }
+
+    .about-grid{
+      max-width:900px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr; /* stacked */
+      gap:25px;
+    }
+
+    .about-card{
+      background:var(--card);
+      padding:28px;
+      border-radius:12px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.35);
+      text-align:left;
+    }
+
+    .about-card h2{
+      margin:0 0 12px 0;
+      color:var(--gold);
+      font-family:"New York", serif;
+      font-size:24px;
+    }
+
+    .about-card p{
+      margin:0;
+      color:var(--text);
+      font-size:17px;
+      line-height:1.7;
+    }
+
+    /* small responsive tweak */
+    @media (max-width:600px){
+      #about-page h1{font-size:30px;}
+      .about-card{padding:20px;}
+    }
+  </style>
+</head>
+<body>
+
+  <section id="about-page">
+    <h1>About SamZ Marble</h1>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h2>Vision Statement</h2>
+        <p>
+          To become the leading creator of refined marble accessories that redefine elegance in luxury spaces,
+          blending timeless craftsmanship with modern design to elevate every environment.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h2>Mission Statement</h2>
+        <p>
+          At Samz Marble, our mission is to craft premium marble accessories with meticulous attention to detail,
+          using the finest materials to deliver sophistication, durability, and style. We aim to inspire luxury
+          living by creating statement pieces that enhance interiors, reflect individuality, and stand the test of time.
+        </p>
+      </div>
     </div>
-</section>
-<li><a href="#about">About</a></li
+  </section>
+
+</body>
+</html>
+
