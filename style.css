@@ -78,18 +78,54 @@ HERO SECTION
 ============================= */
 
 
-#hero {
-width: 100%;
-height: 100vh;
-background-image: url('../images/background imag 2.png/hero.jpg'); /* PLACE YOUR HERO IMAGE HERE */
-background-size: cover;
-background-position: center;
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-position: relative;
+/* ===== HERO SECTION ===== */
+.hero-section {
+    width: 100%;
+    height: 100vh; /* full screen height */
+    background-image: url("images/background imag.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+/* Dark overlay so text is readable */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35); /* you can adjust */
+}
+
+/* Text box centered */
+.hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+/* Title */
+.hero-title {
+    font-family: "New York", serif;
+    font-size: 70px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+/* Tagline */
+.hero-tagline {
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    color: #FFFFFF;
+    margin-top: 0;
+}
+
 
 
 #hero::after {
