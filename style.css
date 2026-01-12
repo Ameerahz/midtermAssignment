@@ -859,3 +859,100 @@ footer {
   cursor: pointer;
   margin-top: 10px;
 }
+
+
+    
+
+/* --------------------NEW ARRIVALS - CENTERED STACKED CARD DESIGN-------- */
+
+
+
+/* 1. Fixes the hidden title issue by adding top padding */
+#new-arrivals {
+    padding-top: 140px;
+    background-color:#041121;
+}
+
+/* 2. Centers the card stack on the screen */
+.stack-container {
+    padding: 20px 5% 200px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Forces cards to the middle */
+}
+
+/* 3. Card Container */
+.arrival-card {
+    position: sticky;
+    top: 230px; /* How far it stops below the navbar */
+    width: 100%;
+    max-width: 900px; /* */
+    background: #0B2647; 
+    border-radius: 20px;
+    margin-bottom: 20vh;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers items inside the card */
+    padding: 50px;
+    gap: 40px;
+}
+
+/* Zig-Zag Logic */
+.card-content.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Uniform Images */
+.card-image img {
+    width: 350px;
+    height: 350px;
+    border-radius: 12px;
+    object-fit: cover;
+    background-color: #ffffff;
+}
+
+/* 4. FULL TEXT & BUTTON CENTERING */
+.card-text {
+    flex: 1;
+    color: #FFFFFF;
+    text-align: center; /* Centers h2 and p text */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the gold button horizontally */
+    justify-content: center;
+}
+
+.card-text h2 {
+    font-family: "New York", serif;
+    font-size: 32px;
+    color: #A8943D; /* Your brand gold */
+    margin-bottom: 20px;
+}
+
+.card-text p {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 400px; /* Keeps text centered and neat */
+}
+
+/* 5. GOLD BUTTON STYLE */
+.quick-view-btn {
+    background-color: #A8943D;
+    color: #FFFFFF;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.quick-view-btn:hover {
+    transform: scale(1.05);
+    background-color: #8a7832;
+}
