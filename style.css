@@ -265,38 +265,204 @@ footer {
 }
 
 /*-------------------------best - sellers---------------------------------------*/
+
 /* ============================================================
-   1. GRID LAYOUT - Fixes the stacking/vertical bug [cite: 7, 16]
+   1. BEST SELLERS SECTION - Requirement [cite: 34]
    ============================================================ */
 #best-sellers {
     padding: 50px 20px;
-    background-color: #041121;
+    background-color: #041121; /* Dark theme background [cite: 47] */
 }
 
+/* Centers the white title at the top [cite: 22] */
+.section-title {
+    text-align: center;
+    font-size: 40px;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    font-family: "New York", serif;
+}
+
+/* ============================================================
+   2. THE GRID - Forces 4 columns on Desktop [cite: 45]
+   ============================================================ */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Forces 4 columns on desktop [cite: 45] */
+    /* Requirement: exactly 4 columns per row  */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 25px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 /* ============================================================
-   2. PRODUCT CARD - Hover and Scale [cite: 27, 50]
+   3. THE PRODUCT CARD - Design & Scale [cite: 9, 27]
    ============================================================ */
 .product-card {
-    background: #0B2647;
+    background: #0B2647; /* Matches navbar theme [cite: 26] */
     padding: 15px;
     border-radius: 12px;
     text-align: center;
     color: #FFFFFF;
     position: relative;
-    transition: transform 0.3s ease; /* Smooth growth animation [cite: 50] */
+    /* Requirement: Smooth movement  */
+    transition: transform 0.3s ease;
+}
+
+/* Box scales up slightly on mouse hover [cite: 58] */
+.product-card:hover {
+    transform: scale(1.05); 
+    z-index: 5;
+}
+
+/* ============================================================
+   4. IMAGE BOX - Fixes size and centering
+   ============================================================ */
+.image-container {
+    width: 100%;
+    max-width: 250px; /* Keeps images small and neat [cite: 21, 49] */
+    margin: 0 auto 15px auto;
+    aspect-ratio: 1 / 1; 
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: white; 
+    display: flex; /* Flex centers the image inside the box */
+    align-items: center;
+    justify-content: center;
+}
+
+.prod-img {
+    display: none; /* Hidden until color is selected  */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Prevents large images like tables from cutting off */
+}
+
+/* ============================================================
+   5. INTERACTIVE LOGIC (CSS-ONLY) - Requirement [cite: 9, 27]
+   ============================================================ */
+
+/* Hide technical checkboxes/radios [cite: 102] */
+.quick-view-check, .color-radio {
+    display: none;
+}
+
+/* Combined Image Logic - Add more IDs here as you add more products */
+#black-1:checked ~ .image-container .img-black,
+#white-1:checked ~ .image-container .img-white,
+#green-1:checked ~ .image-container .img-green,
+#black-2:checked ~ .image-container .img-black,
+#white-2:checked ~ .image-container .img-white,
+#green-2:checked ~ .image-container .img-green,
+#black-3:checked ~ .image-container .img-black,
+#white-3:checked ~ .image-container .img-white,
+#green-3:checked ~ .image-container .img-green {
+    display: block;
+}
+
+/* Quick View Interaction [cite: 32, 50] */
+.quick-view-check:checked ~ .quick-view-btn {
+    display: none; /* Button disappears when pressed */
+}
+
+.quick-view-check:checked ~ .color-options {
+    display: flex; /* Circles appear  */
+}
+
+/* Styling the Gold Buttons [cite: 47] */
+.quick-view-btn {
+    background-color: #A8943D;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Color Circles  */
+.color-options {
+    display: none;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.black { background-color: #000000; }
+.white { background-color: #ffffff; }
+.green { background-color: #2e4d32; }
+
+/* ============================================================
+   6. RESPONSIVE DESIGN - Requirement [cite: 7, 16]
+   ============================================================ */
+@media (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets  */
+    }
+}
+
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr; /* 1 per row on phones [cite: 20] */
+    }
+}
+
+/* ============================================================
+   3. THE PRODUCT CARD - Design & Scale [cite: 27, 50]
+   ============================================================ */
+.product-card {
+    background: #0B2647; /* Matches your navbar */
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+    transition: transform 0.3s ease; /* Requirement: Smooth movement */
 }
 
 .product-card:hover {
-    transform: scale(1.05); /* Requirement: scale up slightly [cite: 58] */
+    transform: scale(1.05); /* Scales up slightly on hover */
     z-index: 5;
+}
+
+/* ============================================================
+   4. INTERACTIVE LOGIC - Requirement [
+   ============================================================ */
+
+/* Hide the technical switches [cite: 9] */
+.quick-view-check, .color-radio {
+    display: none;
+}
+
+/* Interaction: Hide button and show circles when clicked */
+.quick-view-check:checked ~ .quick-view-btn {
+    display: none;
+}
+
+.quick-view-check:checked ~ .color-options {
+    display: flex; /* Show color circles */
+}
+
+/* Show correct image for Product 1 [cite: 50] */
+#black-1:checked ~ .image-container .img-black,
+#white-1:checked ~ .image-container .img-white,
+#green-1:checked ~ .image-container .img-green {
+    display: block;
+}
+
+/* Show correct image for Product 2 */
+#black-2:checked ~ .image-container .img-black,
+#white-2:checked ~ .image-container .img-white,
+#green-2:checked ~ .image-container .img-green {
+    display: block;
 }
 
 /* ============================================================
@@ -314,6 +480,13 @@ footer {
 #black-2:checked ~ .image-container .img-black,
 #white-2:checked ~ .image-container .img-white,
 #green-2:checked ~ .image-container .img-green {
+    display: block;
+}
+
+/* Logic for Product 3 Image Swapping */
+#black-3:checked ~ .image-container .img-black,
+#white-3:checked ~ .image-container .img-white,
+#green-3:checked ~ .image-container .img-green {
     display: block;
 }
 
@@ -402,7 +575,7 @@ footer {
 /* Marble Colors */
 .black { background-color: #000000; }
 .white { background-color: #ffffff; }
-.green { background-color: #2e4d32; }
+.gray  { background-color: #808080; }
 
 /* REQUIRMENT: When Quick View clicked, button disappears and circles pop up [cite: 50] */
 .quick-view-check:checked ~ .quick-view-btn {
