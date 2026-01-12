@@ -69,28 +69,37 @@ font-weight: 500;
 
 
 nav a:hover {
-color: #6e6e6e;
+color: #A8943D;
 }
 
 
+
+
 /* =============================
-HERO SECTION
-============================= */
+   HERO SECTION
+   ============================= */
 
-
-/* ===== HERO SECTION ===== */
 .hero-section {
     width: 100%;
-    height: 100vh; /* full screen height */
-    background-image: url("images/Whisk_df3980496d46d93a0a0456ce21daf8e3dr.png");
-    background-size: cover;
+    height: 100vh; /* keeps it full screen */
+    
+    /* Combined your gradient, your image, and the parallax effect */
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("images/Whisk_df3980496d46d93a0a0456ce21daf8e3dr.png");
+    
+    /* PARALLAX START */
+    background-attachment: fixed;  /* This creates the parallax effect */
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
+    /* PARALLAX END */
+    
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+
 
 /* Dark overlay so text is readable */
 .hero-section::before {
@@ -166,6 +175,12 @@ font-weight: 300;
   font-family: 'New York', serif; /* SamZ Marble title font */
 }
 
+/* Disable parallax on mobile for better performance */
+@media (max-width: 1024px) {
+    .hero-section {
+        background-attachment: scroll;
+    }
+}
 /* =============================
 SHOP BY CATEGORY
 ============================= */
@@ -208,20 +223,35 @@ color: #FFFFFF;
 
 
 .btn {
-display: inline-block;
-margin-top: 10px;
-padding: 10px 20px;
-background-color: #A8943D;
-color: white;
-text-decoration: none;
-border-radius: 5px;
-font-size: 15px;
-transition: 0.3s;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: 2px solid #A8943D;
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: all 0.3s ease; /* Smoothly transitions all properties */
 }
 
+/* This is the magic part: It triggers when the MOUSE is on the BOX/IMAGE */
+.category:hover .btn {
+  background-color: #A8943D;
+  color: #041121; /* Changes text to dark blue so it's readable on gold */
+}
 
-.btn:hover {
-background-color:#041121;
+/* Optional: This adds a subtle zoom to the image when you hover the box */
+.category img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.category:hover img {
+  transform: scale(1.05); 
 }
 
 
@@ -234,57 +264,195 @@ footer {
     text-align: center;
 }
 
-/* =============================
-best - sellers
-============================= */
+/*-------------------------best - sellers---------------------------------------*/
+/* ============================================================
+   1. GRID LAYOUT - Fixes the stacking/vertical bug [cite: 7, 16]
+   ============================================================ */
 #best-sellers {
     padding: 50px 20px;
-    background-color: #041121; /* section background */
+    background-color: #041121;
 }
 
-#best-sellers h2 {
-    text-align: center;
-    font-size: 40px;
-    color: #FFFFFF; /* white title */
-    margin-bottom: 30px;
-    font-family: "New York", serif;
-}
-
-/* Product grid */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 per row */
+    grid-template-columns: repeat(4, 1fr); /* Forces 4 columns on desktop [cite: 45] */
     gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Each product card */
+/* ============================================================
+   2. PRODUCT CARD - Hover and Scale [cite: 27, 50]
+   ============================================================ */
 .product-card {
-    background: #0B2647;       /* matches navbar */
+    background: #0B2647;
     padding: 15px;
     border-radius: 12px;
     text-align: center;
     color: #FFFFFF;
+    position: relative;
+    transition: transform 0.3s ease; /* Smooth growth animation [cite: 50] */
 }
 
-/* === SAME SIZE IMAGES === */
-.product-card img {
+.product-card:hover {
+    transform: scale(1.05); /* Requirement: scale up slightly [cite: 58] */
+    z-index: 5;
+}
+
+/* ============================================================
+   3. INDEPENDENT PRODUCT LOGIC (CSS-ONLY) [cite: 9, 32]
+   ============================================================ */
+
+/* PRODUCT 1 LOGIC */
+#black-1:checked ~ .image-container .img-black,
+#white-1:checked ~ .image-container .img-white,
+#green-1:checked ~ .image-container .img-green {
+    display: block;
+}
+
+/* PRODUCT 2 LOGIC - This stops it from responding to Product 1 */
+#black-2:checked ~ .image-container .img-black,
+#white-2:checked ~ .image-container .img-white,
+#green-2:checked ~ .image-container .img-green {
+    display: block;
+}
+
+/* QUICK VIEW INTERACTION [cite: 32, 50] */
+.quick-view-check:checked ~ .quick-view-btn {
+    display: none; /* Hide button on click */
+}
+
+.quick-view-check:checked ~ .color-options {
+    display: flex; /* Show color circles */
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Scales up slightly [cite: 50] */
+    z-index: 5;
+}
+
+/* ============================================================
+   4. IMAGE BOX - Fixes size to match original small size [cite: 21, 49]
+   ============================================================ */
+.image-container {
     width: 100%;
-    height: 250px;       /* change height if you want */
-    object-fit: cover;   /* keeps images clean and cropped */
-    border-radius: 10px;
+    max-width: 250px; /* Keeps images small and neat [cite: 21, 49] */
+    margin: 0 auto 15px auto;
+    aspect-ratio: 1 / 1; 
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: white; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Price text */
-.product-price {
-    font-size: 18px;
-    margin: 10px 0;
-    color: #EAEAFA;
+.prod-img {
+    display: none; /* Hidden until color is selected [cite: 50] */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents marble images from stretching [cite: 49] */
 }
 
-/* Quick View Button */
+/* ============================================================
+   5. INTERACTIVE LOGIC (CSS-ONLY) - Requirement [cite: 9, 27, 50]
+   ============================================================ */
+
+/* Hide the technical checkboxes and radio buttons [cite: 9] */
+.quick-view-check, .color-radio {
+    display: none;
+}
+
+/* Show the correct image for Product 1 when circle is picked [cite: 50] */
+#black-1:checked ~ .image-container .img-black,
+#white-1:checked ~ .image-container .img-white,
+#green-1:checked ~ .image-container .img-green {
+    display: block;
+}
+
+/* Styling the "Quick View" to look like a gold button */
+.quick-view-btn {
+    background-color: #A8943D; /* Gold color [cite: 47] */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* The color circles container */
+.color-options {
+    display: none; /* Hidden until Quick View is clicked [cite: 50] */
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+/* Circle styling */
+.circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+/* Marble Colors */
+.black { background-color: #000000; }
+.white { background-color: #ffffff; }
+.green { background-color: #2e4d32; }
+
+/* REQUIRMENT: When Quick View clicked, button disappears and circles pop up [cite: 50] */
+.quick-view-check:checked ~ .quick-view-btn {
+    display: none;
+}
+
+.quick-view-check:checked ~ .color-options {
+    display: flex;
+}
+
+/* ============================================================
+   6. RESPONSIVE DESIGN - Requirement [cite: 7, 16, 19]
+   ============================================================ */
+@media (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets [cite: 20] */
+    }
+}
+
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 1fr; /* 1 per row on phones [cite: 20] */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Quick View Button 
 .product-card button {
     background-color: #A8943D;   /* gold button */
-    color: white;
+   /* color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
@@ -400,7 +568,7 @@ best - sellers
 }
 
 /* ---------------CONTACT PAGE-----------
-/* =====  NAVBAR & ALIGNMENT ===== */
+/* -------  NAVBAR & ALIGNMENT ------ */
 .navbar {
   background-color: #0b2a4a; 
   padding: 15px 60px; /* Adjust side padding to match your design */
@@ -435,7 +603,7 @@ best - sellers
   display: flex;
   gap: 30px;
   margin: 0;
-  padding: 0;
+  padding: 15px 60px; /* Match padding with navbar */
 }
 
 .nav-links li a {
@@ -450,7 +618,7 @@ best - sellers
   color: #A8943D;
 }
 
-/* ===== CONTACT PAGE (FIXED SCROLLING) ===== */
+/* ------ CONTACT PAGE ------ */
 .contact-page {
   /* This padding ensures the top of the page isn't hidden by the fixed navbar */
   padding: 140px 20px 80px; 
