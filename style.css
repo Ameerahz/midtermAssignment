@@ -338,16 +338,14 @@ footer {
     object-fit: contain; /* Prevents large images like tables from cutting off */
 }
 
-/* ============================================================
-   5. INTERACTIVE LOGIC (CSS-ONLY) - Requirement [cite: 9, 27]
-   ============================================================ */
+/* 5. INTERACTIVE LOGIC */
 
 /* Hide technical checkboxes/radios [cite: 102] */
 .quick-view-check, .color-radio {
     display: none;
 }
 
-/* Combined Image Logic - Add more IDs here as you add more products */
+/* Combined Image Logic - Add more IDs here as you add more products *//* the code only runs when a user clicks on that specific color option. */
 #black-1:checked ~ .image-container .img-black,
 #white-1:checked ~ .image-container .img-white,
 #green-1:checked ~ .image-container .img-green,
@@ -382,7 +380,7 @@ footer {
 
 /* Color Circles  */
 .color-options {
-    display: none;
+    display: none;/* for Centering  */
     gap: 15px;
     justify-content: center;
     margin-top: 15px;
@@ -400,24 +398,20 @@ footer {
 .white { background-color: #ffffff; }
 .green { background-color: #2e4d32; }
 
-/* ============================================================
-   6. RESPONSIVE DESIGN - Requirement [cite: 7, 16]
-   ============================================================ */
+/*6. RESPONSIVE DESIGN  for the phone-*/
 @media (max-width: 1024px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets  */
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
     .products-grid {
         grid-template-columns: 1fr; /* 1 per row on phones [cite: 20] */
     }
 }
 
-/* ============================================================
-   3. THE PRODUCT CARD - Design & Scale [cite: 27, 50]
-   ============================================================ */
+/* 3. THE PRODUCT CARD - Design & Scale */
 .product-card {
     background: #0B2647; /* Matches your navbar */
     padding: 15px;
@@ -433,9 +427,7 @@ footer {
     z-index: 5;
 }
 
-/* ============================================================
-   4. INTERACTIVE LOGIC - Requirement [
-   ============================================================ */
+/* 4. INTERACTIVE LOGIC - */
 
 /* Hide the technical switches [cite: 9] */
 .quick-view-check, .color-radio {
@@ -465,9 +457,7 @@ footer {
     display: block;
 }
 
-/* ============================================================
-   3. INDEPENDENT PRODUCT LOGIC (CSS-ONLY) [cite: 9, 32]
-   ============================================================ */
+/* --- 3. INDEPENDENT PRODUCT---- */
 
 /* PRODUCT 1 LOGIC */
 #black-1:checked ~ .image-container .img-black,
@@ -490,7 +480,7 @@ footer {
     display: block;
 }
 
-/* QUICK VIEW INTERACTION [cite: 32, 50] */
+/* QUICK VIEW INTERACTION  */
 .quick-view-check:checked ~ .quick-view-btn {
     display: none; /* Hide button on click */
 }
@@ -504,9 +494,7 @@ footer {
     z-index: 5;
 }
 
-/* ============================================================
-   4. IMAGE BOX - Fixes size to match original small size [cite: 21, 49]
-   ============================================================ */
+/* 4. IMAGE BOX - Fixes size to match original small size */
 .image-container {
     width: 100%;
     max-width: 250px; /* Keeps images small and neat [cite: 21, 49] */
@@ -527,9 +515,7 @@ footer {
     object-fit: cover; /* Prevents marble images from stretching [cite: 49] */
 }
 
-/* ============================================================
-   5. INTERACTIVE LOGIC (CSS-ONLY) - Requirement [cite: 9, 27, 50]
-   ============================================================ */
+/* 5. INTERACTIVE LOGIC */
 
 /* Hide the technical checkboxes and radio buttons [cite: 9] */
 .quick-view-check, .color-radio {
@@ -577,7 +563,7 @@ footer {
 .white { background-color: #ffffff; }
 .gray  { background-color: #808080; }
 
-/* REQUIRMENT: When Quick View clicked, button disappears and circles pop up [cite: 50] */
+/* REQUIRMENT: When Quick View clicked, button disappears and circles pop up */
 .quick-view-check:checked ~ .quick-view-btn {
     display: none;
 }
@@ -586,9 +572,7 @@ footer {
     display: flex;
 }
 
-/* ============================================================
-   6. RESPONSIVE DESIGN - Requirement [cite: 7, 16, 19]
-   ============================================================ */
+/*6. RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets [cite: 20] */
@@ -604,41 +588,7 @@ footer {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Quick View Button 
-.product-card button {
-    background-color: #A8943D;   /* gold button */
-   /* color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.product-card button:hover {
-    opacity: 0.8;
-}
-
-
-/* ABOUT SECTION */
+/* ----------------------------------ABOUT SECTION -----------------------------*/
 /* ===== ABOUT PAGE ===== */
 #about-page {
     background-color: #041121; /* Same theme */
@@ -690,9 +640,8 @@ footer {
     font-family: "Montserrat", sans-serif;
 }
 /*-------------------------------- CONTACT PAGE ---------------------------------*/
-#/* =============================
-   NAVBAR (New Style)
-   ============================= */
+/* -----------NAVBAR (New Style)----------- */
+  
 .navbar {
   background-color: #0b2a4a; /* dark blue */
   padding: 20px 40px;
@@ -740,7 +689,7 @@ footer {
   opacity: 0.7;
 }
 
-/* ---------------CONTACT PAGE-----------
+/* -------------------------------CONTACT PAGE------------------------------- */
 /* -------  NAVBAR & ALIGNMENT ------ */
 .navbar {
   background-color: #0b2a4a; 
@@ -863,11 +812,11 @@ footer {
 
     
 
-/* --------------------NEW ARRIVALS - CENTERED STACKED CARD DESIGN-------- */
+/* --------------------NEW ARRIVALS - CENTERED STACKED CARD DESIGN------------ */
 
 
 
-/* 1. Fixes the hidden title issue by adding top padding */
+/* 1. title */
 #new-arrivals {
     padding-top: 140px;
     background-color:#041121;
@@ -886,7 +835,7 @@ footer {
     position: sticky;
     top: 230px; /* How far it stops below the navbar */
     width: 100%;
-    max-width: 900px; /* */
+    max-width: 900px; 
     background: #0B2647; 
     border-radius: 20px;
     margin-bottom: 20vh;
@@ -901,10 +850,10 @@ footer {
     gap: 40px;
 }
 
-/* Zig-Zag Logic */
+/* Zig-Zag Logic 
 .card-content.reverse {
     flex-direction: row-reverse;
-}
+}*/
 
 /* Uniform Images */
 .card-image img {
@@ -929,7 +878,7 @@ footer {
 .card-text h2 {
     font-family: "New York", serif;
     font-size: 32px;
-    color: #A8943D; /* Your brand gold */
+    color: #A8943D; /* Gold color for titles */
     margin-bottom: 20px;
 }
 
