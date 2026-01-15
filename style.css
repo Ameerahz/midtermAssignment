@@ -4,6 +4,8 @@
   font-weight: normal;
   font-style: normal;
 }
+
+
 html{
   font-family: 'New York', Georgia, 'Times New Roman', Times, serif;
 
@@ -904,4 +906,49 @@ footer {
 .quick-view-btn:hover {
     transform: scale(1.05);
     background-color: #8a7832;
+}
+/* --- DESKTOP VIEW (Unchanged) --- */
+.menu-checkbox, .hamburger {
+    display: none; /* Hidden on large screens */
+}
+
+/* --- MOBILE VIEW (768px and smaller) --- */
+@media (max-width: 768px) {
+    /* Show the hamburger icon */
+    .hamburger {
+        display: flex; /* */
+        flex-direction: column; /* */
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: #A8943D; /* Your brand gold */
+        border-radius: 2px;
+    }
+
+    /* Transform the nav-links into a vertical centered menu */
+    .nav-links {
+        display: none; /* Keep it hidden until clicked */
+        position: absolute;
+        top: 70px; /* Sits below the navbar logo */
+        left: 0;
+        width: 100%;
+        background-color: #0b2a4a; /* Matches your navy blue */
+        flex-direction: column; /* */
+        align-items: center; /* Centers the links horizontally */
+        padding: 30px 0;
+        z-index: 1000;
+    }
+
+    /* When checkbox is clicked, show the menu */
+    .menu-checkbox:checked ~ .nav-links {
+        display: flex; /* */
+    }
+
+    .nav-links li {
+        margin: 15px 0; /* Space between links on mobile */
+    }
 }
